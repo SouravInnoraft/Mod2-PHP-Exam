@@ -1,0 +1,53 @@
+<?php
+
+require_once __DIR__ . '/ActionController.php';
+
+// Creating object of ActionController class.
+$action = new ActionController();
+
+// Calling insert function.
+$action->insertTodoData($_POST['task']);
+
+// Calling insert function.
+$rows = $action->fetchData();
+
+$cnt = 0;
+?>
+<table class="table table-success table-striped-columns">
+  <thead>
+    <tr>
+      <th scope=" col">#</th>
+      <th scope="col">task_id</th>
+      <th scope="col" colspan="2">task</th>
+      <th scope="col">Delete task</th>
+      <th scope="col">Update task</th>
+      <th scope="col">Marked</th>
+    </tr>
+  </thead>
+  <?php
+  if ($rows != null) {
+
+      // Checking is data exists or not.
+    foreach ($rows as $row) {
+      $cnt++;
+  ?>
+      <tbody>
+        <tr class="table-row">
+          <th scope="row cnt"><?= $cnt ?></th>
+          <td id='<=?$cnt?>'><?= $row['task_id'] ?></td>
+          <td id='<=?$cnt?>' colspan="2" class="row-data"><?= $row['task'] ?></td>
+          <td><button data-taskid='<?= $row['task_id'] ?>' class='delete-todo'>Delete</button></td>
+          <td><input type="text" id='<?= $row['task_id'] ?>'><button data-taskid='<?= $row['task_id'] ?>' class='update-todo'>update</button></td>
+          <td><button data-taskid='<?= $row['task_id'] ?>' class='mark-todo'>Marked</button></td>
+        </tr>
+      </tbody>
+    <?php
+    }
+  }
+  else {
+    ?>
+    <h1>Empty</h1>
+  <?php
+  }
+  ?>
+</table>
