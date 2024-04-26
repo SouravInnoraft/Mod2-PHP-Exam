@@ -45,7 +45,8 @@ $cnt = 0;
       </del>
     <?php
     }
-  } else {
+  }
+  else {
     ?>
     <h1>Empty</h1>
   <?php

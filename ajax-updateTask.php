@@ -27,7 +27,7 @@ $cnt = 0;
   </thead>
   <?php
   if ($rows != null) {
-    
+
   // Checking is data exists or not.
     foreach ($rows as $row) {
       $cnt++;
@@ -44,7 +44,8 @@ $cnt = 0;
       </tbody>
     <?php
     }
-  } else {
+  }
+  else {
     ?>
     <h1>Empty</h1>
   <?php

@@ -43,7 +43,8 @@ $cnt = 0;
       </tbody>
     <?php
     }
-  } else {
+  }
+  else {
     ?>
     <h1>Empty</h1>
   <?php
